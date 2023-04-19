@@ -4,8 +4,8 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 
 // import dos estilos
-import { DivEnviar, Div, ButtonSend, StyledIoMdSend, Logue } from '../estilos/MainPage-style'
-import { TextArea, InputTittle } from '../estilos/Estilos-gerais'
+import { DivEnviar, Div, ButtonSend, StyledIoMdSend, Logue } from '../../estilos/MainPage-style'
+import { TextArea, InputTittle } from '../../estilos/Estilos-gerais'
 
 // tipagem dos props
 interface Props {

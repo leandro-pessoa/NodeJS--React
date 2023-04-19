@@ -3,9 +3,9 @@ import React, { ChangeEvent } from 'react'
 import { Link } from 'react-router-dom'
 
 // imports dos estilos
-import { Body, Main, Div, DivImg, Section, FormInputs, H1, HrMaior, CadastroButton, CadastroInput, Field } from '../estilos/Cadastro-style'
-import { Input, Invalido } from '../estilos/Estilos-gerais'
-import '../App.css'
+import { Body, Main, Div, DivImg, Section, FormInputs, H1, HrMaior, CadastroButton, CadastroInput, Field } from '../../estilos/Cadastro-style'
+import { Input, Invalido } from '../../estilos/Estilos-gerais'
+import '../../App.css'
 
 //imports dos ícones
 import { CiUser }  from 'react-icons/ci'
@@ -15,7 +15,7 @@ import { CiCalendarDate } from 'react-icons/ci'
 import { CiLock } from 'react-icons/ci'
 
 // imports de outros documentos
-import PasswordVisibility from './PasswordVisibility'
+import PasswordVisibility from '../geral/PasswordVisibility'
 import ButtonCadastro from './ButtonCadastro'
 
 //tipagem dos props

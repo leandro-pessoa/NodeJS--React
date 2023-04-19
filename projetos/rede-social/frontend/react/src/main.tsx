@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom' 
 
-import Login from './componentes/Login'
-import Cadastro from './componentes/Cadastro'
+import Login from './componentes/login/Login'
+import Cadastro from './componentes/cadastro/Cadastro'
 import MainPage from './MainPage'
 
 export default function App(){

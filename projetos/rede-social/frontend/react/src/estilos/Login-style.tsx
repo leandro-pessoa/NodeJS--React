@@ -87,7 +87,6 @@ const LoginButton = styled.button`
         box-shadow: 1px 1px 2px #00000041;
         cursor: pointer;
     }
-    &:
 `
 
 const StyledLink = styled(Link)`

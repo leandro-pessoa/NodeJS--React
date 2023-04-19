@@ -3,7 +3,7 @@ import React from 'react'
 import axios from 'axios'
 
 // import dos estilos
-import { Button, StyledCiTrash } from '../estilos/RenderPosts-style'
+import { Button, StyledCiTrash } from '../../estilos/RenderPosts-style'
 
 // tipagem dos props
 interface Props {

@@ -1,8 +1,8 @@
 // imports dos módulos
-import React, { ChangeEvent } from 'react'
+import React from 'react'
 
 // import dos estilos
-import { DivPosts, Post, Div, H2, Small, P, Button, H3, Svg, Path } from '../estilos/RenderPosts-style'
+import { DivPosts, Post, Div, H2, Small, P, Button, H3, Svg, Path } from '../../estilos/RenderPosts-style'
 
 // imports de outros componentes
 import ApagarPost from './ApagarPost' 
@@ -96,13 +96,11 @@ export default class RenderPosts extends React.Component<Props>{
                             <Path d="M80 1056v-48h800v48H80Zm132.667-185.333V796l352-350 72.666 72.667-350 352h-74.666Zm24-24H274L602.667 518l-37.334-37.333-328.666 328v38Zm433.666-366L597.667 410l40-40.667q11-11 26.333-11.333 15.333-.333 27 11.333L708.333 386q11 11.667 11.667 27 .667 15.333-9.667 27l-40 40.667Zm-433.666 366Z" data-indice={indice}/>
                         </Svg>
                     </Button>
-                    <Button>
-                        <ApagarPost 
-                            indice={indice}
-                            dados={this.props.dados}
-                            setDados={(e)=>this.props.setDados(e)}
-                        />
-                    </Button>
+                    <ApagarPost 
+                        indice={indice}
+                        dados={this.props.dados}
+                        setDados={(e)=>this.props.setDados(e)}
+                    />
                 </P>
             )
         }
@@ -122,12 +120,12 @@ export default class RenderPosts extends React.Component<Props>{
         }
         else{
             return this.props.dados.map(
-                (post: {id?: string, usuario?: string, email?: string, titulo?: string, msg?: string, data?: string, hora?: string, editado?: boolean}) => 
+                (post: {id?: string, usuario?: string, email?: string, titulo?: string, msg?: string, data?: string, hora?: string, editado?: boolean, likes?: string[]}) => 
                     <Post>
                         <Div
                             style={{justifyContent: 'space-between'}}
                         >
-                            <P>
+                            <Div>
                                 <H2>{post.usuario}</H2>
                                 <Small>
                                     | {post.data} {post.hora}
@@ -135,7 +133,7 @@ export default class RenderPosts extends React.Component<Props>{
                                 <Small>
                                     {post.editado ? '| Editado' : ''}
                                 </Small>
-                            </P>
+                            </Div>
                             {this.renderCrud(post.email, post.id)}
                         </Div>
                         <Div
@@ -153,10 +151,12 @@ export default class RenderPosts extends React.Component<Props>{
                         <Like
                             id={post.id}
                             email={post.email}
+                            numLikes={
+                                typeof post.likes?.length == 'number' ? post.likes?.length : 0
+                            }
                         />
                     </Post>
                 )  
-                
         }
     }
 

@@ -1,22 +1,21 @@
 // imports dos módulos
-import React, { ChangeEvent } from "react"
+import React from "react"
 import axios from "axios"
 import { ToastContainer, toast } from "react-toastify"
 
 // import de outro componente
-import Header from './componentes/Header'
-import Enviar from './componentes/Enviar'
-import RenderPosts from './componentes/RenderPosts'
+import Header from './componentes/geral/Header'
+import Enviar from './componentes/posts/Enviar'
+import RenderPosts from './componentes/posts/RenderPosts'
 
 // import dos estilos
-import { Body, SectionImg, SectionContent } from "./estilos/MainPage-style"
+import { Main, SectionImg, SectionContent } from "./estilos/MainPage-style"
 import './App.css'
 
 // tipagem dos props
 interface Props {
 
 }
-
 
 export default class MainPage extends React.Component<Props>{
     // tipagem dos states
@@ -35,6 +34,7 @@ export default class MainPage extends React.Component<Props>{
         }
     }
     
+    // funções de setagem de states
     setSectionImgSize(): void {
         this.setState({sectionImgSize: !this.state.sectionImgSize})
     }
@@ -58,6 +58,7 @@ export default class MainPage extends React.Component<Props>{
             })
     }
 
+    // executa a função 'getPosts' quando o componente é criado
     componentDidMount(): void {
         this.getPosts()
     }
@@ -66,25 +67,21 @@ export default class MainPage extends React.Component<Props>{
         return (
             <>
                 <ToastContainer/>
-                <Header
-                    setImgSize={()=>this.setSectionImgSize()}
-                />
-                <Body>
-                    <SectionImg
-                        tam={this.state.sectionImgSize ? '250px' : '0px'}
-                    >
-                    </SectionImg>
-                    <SectionContent>
-                        <RenderPosts
-                            dados={this.state.dados}
-                            setDados={(e)=>this.setDados(e)}
-                        />
-                        <Enviar
-                            dados={this.state.dados}
-                            setDados={(e)=>this.setDados(e)}
-                        />
-                    </SectionContent>
-                </Body>
+                <Header/>
+                <SectionImg>
+                    <Main>
+                        <SectionContent>
+                            <RenderPosts
+                                dados={this.state.dados}
+                                setDados={(e)=>this.setDados(e)}
+                            />
+                            <Enviar
+                                dados={this.state.dados}
+                                setDados={(e)=>this.setDados(e)}
+                            />
+                        </SectionContent>
+                    </Main>
+                </SectionImg>
             </>
         )
     }

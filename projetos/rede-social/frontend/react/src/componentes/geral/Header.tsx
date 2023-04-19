@@ -1,20 +1,21 @@
 // imports de módulos
 import React from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
 
 //import do estilo
-import { Body, SectionTittle, DivLinks, SectionUser, DivUser, H2, StyledLink, StyledCiMenuBurger, Button } from '../estilos/HeaderStyle'
+import { Heade, SectionTittle, DivLinks, SectionUser, DivUser, DivMenu, H2, StyledLink, StyledLink2, Div } from '../../estilos/HeaderStyle'
+
+import { CiLogout } from 'react-icons/ci'
 
 // tipagem dos props
 interface Props{
-  setImgSize: () => void
+  
 }
 
 export default class Header extends React.Component<Props>{
   // tipagem dos states
   state: {
-    user: object | string
+    user: object | string,
+    divMenuDisplay: boolean
   }
 
   // declaração do construtor e dos states
@@ -22,8 +23,16 @@ export default class Header extends React.Component<Props>{
     super(props)
 
     this.state = {
-      user: ''
+      user: '',
+      divMenuDisplay: false
     }
+  }
+
+  // alterna a visibilidade do menu do usuário
+  setDivMenu(): void{
+    this.setState({
+      divMenuDisplay: !this.state.divMenuDisplay
+    })
   }
 
   // pega o usuario logado do sessionStorage e o coloca no state user
@@ -38,6 +47,11 @@ export default class Header extends React.Component<Props>{
   // quando o compnente é montado, a função getUsuarioLogado é executada
   componentDidMount(): void {
     this.getUsuarioLogado()
+  }
+
+  // retira o usuario_logado do sessionStorage
+  logout(): void{
+    sessionStorage.removeItem('usuario_logado')
   }
 
   // serve para a renderização do canto direito
@@ -55,11 +69,11 @@ export default class Header extends React.Component<Props>{
     }
     else{
       return (
-        <SectionUser>
+        <SectionUser
+          onClick={()=>this.setDivMenu()}
+        >
           <DivUser
-            style={{
-              color: '#80C3B2'
-            }}
+            style={{color: '#80C3B2'}}
           > 
             {user.usuario}
           </DivUser>
@@ -72,6 +86,20 @@ export default class Header extends React.Component<Props>{
           >
             {user.email}
           </DivUser>
+          <DivMenu
+            divMenu={this.state.divMenuDisplay ? 'block' : 'none'}
+          >
+            <StyledLink2 to='/login' onClick={()=>this.logout()}>
+                <Div>
+                  <CiLogout
+                    size={21}
+                    color='#41A7BD'
+                    style={{marginRight: '5px', transform: 'translate(0px, 0px)'}}
+                  />
+                  Logout
+                </Div>
+            </StyledLink2>
+          </DivMenu>
         </SectionUser>
       )
     }
@@ -79,22 +107,16 @@ export default class Header extends React.Component<Props>{
 
   render(): React.ReactNode {
     return(
-      <Body>
+      <Heade>
         <SectionTittle
           style={{
             display: 'flex'
           }}
         >
-          <Button onClick={()=>this.props.setImgSize()}>
-            <StyledCiMenuBurger
-              size={25}
-              color='#80C3B2'
-            />
-          </Button>
           <H2>Rede social</H2>
         </SectionTittle>
         {this.renderUsuario()}
-      </Body>
+      </Heade>
     )
   }
 }

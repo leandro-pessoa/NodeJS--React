@@ -10,19 +10,22 @@ import { IoMdSend } from 'react-icons/io'
 
 // tipagem dos props
 interface Props {
-    tam: string
+    
 }
 
 // declaração dos estilos
-const Body = styled.body`
+const Main = styled.main`
     display: flex;
     flex-direction: row;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #2b2d33;
     height: 92vh;
+    width: 75%;
+    margin: auto;
     color: white;
-    @media (max-width: 668px){
+    @media (max-width: 700px){
         font-size: 0.9em;
+        width: 100%;
     }
     @media (max-width: 500px){
         height: calc(90vh - 19px);
@@ -31,12 +34,6 @@ const Body = styled.body`
 const SectionImg = styled.section`
     background: url(${Img}) center center no-repeat fixed;
     background-size: cover;
-    border-right: 1px solid #71747c;
-    width: ${(props: Props) => props.tam};
-    transition: ease .3s;
-    @media (min-width: 701px){
-        width: 250px;
-    }
 `
 const SectionContent = styled.section`
     display: flex;
@@ -91,7 +88,7 @@ const Logue = styled.div`
     font-size: 1.1em;
     padding: 40px;
     border-top: 1px solid #71747c;
-    width: 100vh;
+    width: calc(80% - 40px);
     text-align: center;
     @media (max-width: 600px){
         font-size: 1em;
@@ -99,4 +96,4 @@ const Logue = styled.div`
 `
 
 // exportação dos estilos
-export { Body, SectionImg, SectionContent, DivPost, DivEnviar ,Div, ButtonSend, StyledIoMdSend, Logue }
+export { Main, SectionImg, SectionContent, DivPost, DivEnviar ,Div, ButtonSend, StyledIoMdSend, Logue }

@@ -5,8 +5,13 @@ import { Link } from 'react-router-dom'
 // import do ícone
 import { CiMenuBurger } from 'react-icons/ci'
 
+// tipagem dos props
+interface Props {
+    divMenu: string
+}
+
 // declaração dos estilos
-const Body = styled.body`
+const Heade = styled.header`
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: flex;
     flex-direction: row;
@@ -14,10 +19,7 @@ const Body = styled.body`
     align-items: center;
     border-bottom: 1px solid #71747c;
     background-color: #2b2d33;
-    padding: 15px 15px;
-    @media (min-width: 700px){
-        padding: 15px 30px
-    }
+    padding: 15px 30px;
     @media (max-width: 700px){
         font-size: 0.9em;
     }
@@ -49,11 +51,17 @@ const DivLinks = styled.div`
     }
 `
 
-const SectionUser = styled.section`
+const SectionUser = styled.button`
+    background-color: transparent;
+    border: none;
+    &:hover{
+        cursor: pointer;
+        
+    }
     @media (max-width: 500px){
         display: flex;
         justify-content: flex-start;
-        width: calc(100% - 40px);
+        width: 100%;
         padding: 10px; 
         padding-left: 30px;
         border-top: 1px solid #71747c;
@@ -62,6 +70,23 @@ const SectionUser = styled.section`
 `
 const DivUser = styled.div`
 
+`
+const DivMenu = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color: #2b2d33;
+    border: 1px solid #71747c;
+    border-top: none;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: ${(props: Props) => props.divMenu};
+    font-size: 1em;
+    transform: translate(-12px, 0px);
+    @media (max-width: 500px){
+        transform: translate(0px, 20px);
+    }
 `
 
 const H2 = styled.h2`
@@ -81,32 +106,48 @@ const StyledLink = styled(Link)`
         background-color: #454852;
     }
 `
+const StyledLink2 = styled(Link)`
+    text-decoration: none;
+    color: white;
+`
 
-const Button = styled.button`
-    background-color: transparent;
-    border: none;
-    margin-right: 15px;
-    width: 25px;
-    text-align: center;
-    display: none;
+const Div = styled.div`
+    width: 100px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     &:hover{
         background-color: #454852;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-    @media (max-width: 700px){
-        display: block;
     }
 `
 
-const StyledCiMenuBurger = styled(CiMenuBurger)`
-    margin-right: 15px; 
-    transform: translate(0px, 0px);
-    display: none;
-    @media (max-width: 700px){
-        display: block;
-    }
-`
+// const Button = styled.button`
+//     background-color: transparent;
+//     border: none;
+//     margin-right: 15px;
+//     width: 25px;
+//     text-align: center;
+//     display: none;
+//     &:hover{
+//         background-color: #454852;
+//         cursor: pointer;
+//         border-radius: 5px;
+//     }
+//     @media (max-width: 700px){
+//         display: block;
+//     }
+// `
+
+// const StyledCiMenuBurger = styled(CiMenuBurger)`
+//     margin-right: 15px; 
+//     transform: translate(0px, 0px);
+//     display: none;
+//     @media (max-width: 700px){
+//         display: block;
+//     }
+// `
 
 // exportação dos estilos
-export { Body, SectionTittle, DivLinks, SectionUser, DivUser, H2, StyledLink, StyledCiMenuBurger, Button }
+export { Heade, SectionTittle, DivLinks, SectionUser, DivUser, DivMenu, H2, StyledLink, StyledLink2, Div }

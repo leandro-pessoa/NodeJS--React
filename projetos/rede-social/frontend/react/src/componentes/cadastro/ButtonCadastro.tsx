@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 // import do estilo
-import { CadastroButton }  from '../estilos/Cadastro-style'
+import { CadastroButton }  from '../../estilos/Cadastro-style'
 
 // tipagem dos props
 interface Props {

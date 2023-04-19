@@ -2,7 +2,7 @@
 import React from 'react'
 
 //imports das imagens
-import { Button, BsEyeStyled, BsEyeSlashStyled } from '../estilos/Eye-style'
+import { Button, BsEyeStyled, BsEyeSlashStyled } from '../../estilos/Eye-style'
 
 
 //tipagem dos props

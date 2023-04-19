@@ -4,8 +4,8 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 
 // imports dos estilos
-import { Post, Div, P, H2, Small, H3, StyledCiEdit, StyledMdOutlineCancel } from '../estilos/RenderPosts-style'
-import { TextArea, InputTittle } from '../estilos/Estilos-gerais'
+import { Post, Div, P, H2, Small, H3, StyledCiEdit, StyledMdOutlineCancel } from '../../estilos/RenderPosts-style'
+import { TextArea, InputTittle } from '../../estilos/Estilos-gerais'
 
 
 // tipagem dos props
@@ -105,12 +105,12 @@ export default class EditarPost extends React.Component<Props>{
                     <Div
                         style={{justifyContent: 'space-between'}}
                     >
-                        <P>
+                        <Div>
                             <H2>{dado.usuario}</H2>
                             <Small>
                                 | {dado.data} {dado.hora}
                             </Small>
-                        </P>
+                        </Div>
                     </Div>
                     <Div
                         style={{flexDirection: 'column'}}

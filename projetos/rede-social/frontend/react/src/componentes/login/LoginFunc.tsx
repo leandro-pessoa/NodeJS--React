@@ -1,10 +1,10 @@
 // imports dos módulos
-import React, { ChangeEvent } from 'react'
+import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 // import do estilo
-import { LoginButton } from '../estilos/Login-style'
+import { LoginButton } from '../../estilos/Login-style'
 
 // tipagem dos props
 interface Props {

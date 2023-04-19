@@ -32,6 +32,7 @@ const Post = styled.div`
 
 const Div = styled.div`
     display: flex;
+    word-break: break-all;
 `
 
 const H2 = styled.h2`

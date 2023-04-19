@@ -1,18 +1,32 @@
 // import do módulo
 import styled from "styled-components"
 
+// tipagem dos props
+interface Props {
+    buttonColor: string
+}
+
 // declaração dos componentes estilizados 
 
 const Button = styled.button`
-    position: relative;
     background-color: transparent;
     border: none;
-    width: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: -5px;
+    width: 7%;
     &:hover{
         cursor: pointer;
     }
-    color: #f85d5d;
+    color: ${(props: Props) => props.buttonColor};
+`
+
+const Span = styled.span`
+    @media (max-width: 500px){
+        font-size: 0.7em;
+    }
 `
 
 // exportação dos componentes
-export { Button }
+export { Button, Span }

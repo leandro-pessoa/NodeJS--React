@@ -1,16 +1,15 @@
 // imports de módulos e imagens
 import React, {ChangeEvent} from 'react'
-import { Link } from 'react-router-dom'
 import  { CiLock } from 'react-icons/ci'
 import { CiUser } from 'react-icons/ci'
 
 // imports dos estilos
-import { Main, Body, DivTitulo, H1, PTxt, Div,  DivContent, Label, LoginButton, StyledLink} from '../estilos/Login-style'
-import { Input, Invalido } from '../estilos/Estilos-gerais'
-import '../App.css'
+import { Main, Body, DivTitulo, H1, PTxt, Div,  DivContent, Label, LoginButton, StyledLink} from '../../estilos/Login-style'
+import { Input, Invalido } from '../../estilos/Estilos-gerais'
+import '../../App.css'
 
 //imports de outros documentos
-import PasswordVisibility from './PasswordVisibility'
+import PasswordVisibility from '../geral/PasswordVisibility'
 import LoginFunc from './LoginFunc'
 
 //tipagem dos props
