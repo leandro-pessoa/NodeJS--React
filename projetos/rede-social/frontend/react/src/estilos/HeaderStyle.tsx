@@ -84,6 +84,7 @@ const DivMenu = styled.div`
     display: ${(props: Props) => props.divMenu};
     font-size: 1em;
     transform: translate(-12px, 0px);
+    z-index: 10;
     @media (max-width: 500px){
         transform: translate(0px, 20px);
     }

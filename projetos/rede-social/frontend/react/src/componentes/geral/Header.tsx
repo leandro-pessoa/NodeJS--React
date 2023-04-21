@@ -29,10 +29,17 @@ export default class Header extends React.Component<Props>{
   }
 
   // alterna a visibilidade do menu do usuário
-  setDivMenu(): void{
-    this.setState({
-      divMenuDisplay: !this.state.divMenuDisplay
-    })
+  setDivMenu(modo: number): void{
+    if(modo == 1){
+      this.setState({
+        divMenuDisplay: !this.state.divMenuDisplay
+      })
+    }
+    else{
+      this.setState({
+        divMenuDisplay: false
+      })
+    }
   }
 
   // pega o usuario logado do sessionStorage e o coloca no state user
@@ -59,7 +66,7 @@ export default class Header extends React.Component<Props>{
   // caso contrário, aparecerá o usuário e o email dele
   renderUsuario(): JSX.Element{
     const user: any = this.state.user
-    if(user == ''){
+    if(user == '' || user == undefined || user == null){
       return (
         <DivLinks>
           <StyledLink to='/login'>Entrar</StyledLink>
@@ -70,7 +77,8 @@ export default class Header extends React.Component<Props>{
     else{
       return (
         <SectionUser
-          onClick={()=>this.setDivMenu()}
+          onClick={()=>this.setDivMenu(1)}
+          onMouseLeave={()=>this.setDivMenu(2)}
         >
           <DivUser
             style={{color: '#80C3B2'}}

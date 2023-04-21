@@ -6,6 +6,11 @@ import { CiTrash } from 'react-icons/ci'
 import { CiEdit } from 'react-icons/ci'
 import { MdOutlineCancel } from 'react-icons/md'
 
+// tipagem dos props
+interface Props {
+    alturaComentarios: string
+}
+
 // declaração dos componentes estilizados
 const DivPosts = styled.div`
     overflow: auto;
