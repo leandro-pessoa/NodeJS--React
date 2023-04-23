@@ -4,6 +4,7 @@ import React from 'react'
 // imports dos estilos
 import { DivPosts, Post, Div, H2, Small, P, Button, H3, Svg, Path } from '../../estilos/RenderPosts-style'
 import { TextArea } from '../../estilos/Estilos-gerais'
+import { DivComentarios } from '../../estilos/Comentarios-style'
 
 // imports de outros componentes
 import ApagarPost from './ApagarPost' 
@@ -66,14 +67,6 @@ export default class RenderPosts extends React.Component<Props>{
 
     // fechamento do modo de edição
     closeModoEdit(): void {this.setState({modoEdit: false})}
-
-    // abertura e fechamento do modo de comentários
-    setComentario(e: any, id?: string): void{
-        console.log(id)
-        if(e.target.dataset.indice == id){
-            this.setState({comentario: !this.state.comentario})
-        }
-    }
 
     // pega o usuário logado do sessionStorage e o coloca no state 'user'
     getUsuarioLogado(): void{
@@ -168,17 +161,22 @@ export default class RenderPosts extends React.Component<Props>{
                                     typeof post.likes?.length == 'number' ? post.likes?.length : 0
                                 }
                             />
-                            <Button>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="27" viewBox="0 96 960 960" width="27" data-indice={post.id} fill={this.state.comentario ? '#356A8C' : '#71747C'} onClick={(e)=>this.setComentario(e, post.id)}>
-                                    <path d="M266 630h266v-22H266v22Zm0-123h428v-22H266v22Zm0-123h428v-22H266v22ZM132 876V282q0-23 15.613-38.5Q163.225 228 186 228h588q23 0 38.5 15.5T828 282v428q0 23-15.5 38.5T774 764H244L132 876Zm22-54 80-80h540q14 0 23-9t9-23V282q0-14-9-23t-23-9H186q-14 0-23 9t-9 23v540Zm0-540v-32 572-540Z" data-indice={post.id}/>
-                                </svg>
-                            </Button>
+                            <Comentarios
+                                id={post.id}
+                            />
                         </Div>
-                        <Comentarios
-                            id={post.id}
-                            comentario={this.state.comentario}
-                        />
-                        
+                        <DivComentarios
+                            displayComentarios={this.state.comentario ? 'flex' : 'none'}
+                        >
+                            <hr
+                                color='#71747C'
+                                style={{margin: '10px'}}
+                            />
+                            <H2>Comentários</H2>
+                            <TextArea
+                                placeholder='Comentário'
+                            />
+                        </DivComentarios>
                     </Post>
                 )  
         }
