@@ -124,15 +124,15 @@ export default class Login extends React.Component<Props>{
                 setSenhaIncorreta={(e)=>this.setSenhaIncorreta(e)}
               />
             </Div>
-            <Div>
-              <LoginButton>
-                Esqueci minha senha
-              </LoginButton>
-            </Div>
             <hr
               style={{margin: '10px 0px'}}
               color='#5dc5c5'
             />
+            <Div style={{textAlign: 'center', margin: '10px'}}>
+              <StyledLink to='/esqueci_minha_senha'>
+                Esqueci minha senha
+              </StyledLink>
+            </Div>
             <Div style={{textAlign: 'center'}}>
               <StyledLink to='/cadastro' className='login'>Novo usuário</StyledLink>
             </Div>

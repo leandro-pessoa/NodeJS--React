@@ -2,9 +2,13 @@
 import React from 'react'
 
 //import do estilo
-import { Heade, SectionTittle, DivLinks, SectionUser, DivUser, DivMenu, H2, StyledLink, StyledLink2, Div } from '../../estilos/HeaderStyle'
+import { Heade, SectionTittle, DivLinks, SectionUser, DivUser, DivMenu, H2, StyledLink, StyledLink2, Div, User } from '../../estilos/HeaderStyle'
 
+// import do ícone
 import { CiLogout } from 'react-icons/ci'
+
+// import de outro componente
+import ToggleBackground from './ToggleBackground'
 
 // tipagem dos props
 interface Props{
@@ -78,7 +82,6 @@ export default class Header extends React.Component<Props>{
       return (
         <SectionUser
           onClick={()=>this.setDivMenu(1)}
-          onMouseLeave={()=>this.setDivMenu(2)}
         >
           <DivUser
             style={{color: '#80C3B2'}}
@@ -123,7 +126,10 @@ export default class Header extends React.Component<Props>{
         >
           <H2>Rede social</H2>
         </SectionTittle>
-        {this.renderUsuario()}
+          <User>
+            <ToggleBackground/>
+            {this.renderUsuario()}
+          </User>
       </Heade>
     )
   }

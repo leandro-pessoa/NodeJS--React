@@ -56,15 +56,12 @@ const SectionUser = styled.button`
     border: none;
     &:hover{
         cursor: pointer;
-        
     }
     @media (max-width: 500px){
         display: flex;
         justify-content: flex-start;
-        width: 100%;
-        padding: 10px; 
-        padding-left: 30px;
-        border-top: 1px solid #71747c;
+        
+        padding: 10px;
         gap: 15px;
     }
 `
@@ -124,6 +121,15 @@ const Div = styled.div`
     }
 `
 
+const User = styled.div`
+    display: flex;
+    @media (max-width: 500px){
+        border-top: 1px solid #71747c;
+        width: calc(100% - 30px);
+        padding-left: 30px;
+    }
+`
+
 // const Button = styled.button`
 //     background-color: transparent;
 //     border: none;
@@ -151,4 +157,4 @@ const Div = styled.div`
 // `
 
 // exportação dos estilos
-export { Heade, SectionTittle, DivLinks, SectionUser, DivUser, DivMenu, H2, StyledLink, StyledLink2, Div }
+export { Heade, SectionTittle, DivLinks, SectionUser, DivUser, DivMenu, H2, StyledLink, StyledLink2, Div, User }

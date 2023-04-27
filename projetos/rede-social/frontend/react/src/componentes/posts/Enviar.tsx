@@ -4,8 +4,12 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 
 // import dos estilos
-import { DivEnviar, Div, ButtonSend, StyledIoMdSend, Logue } from '../../estilos/MainPage-style'
 import { TextArea, InputTittle } from '../../estilos/Estilos-gerais'
+import { ButtonAtivar, DivEnviar, DivCampo, ButtonSend, StyledIoMdSend, Logue } from '../../estilos/Enviar-style'
+
+// imports dos ícones
+import { IoMdArrowDropdown } from 'react-icons/io'
+import { IoMdArrowDropup } from 'react-icons/io'
 
 // tipagem dos props
 interface Props {
@@ -18,7 +22,8 @@ export default class Enviar extends React.Component<Props>{
     state: {
         titulo: string,
         msg: string,
-        user: string
+        user: string,
+        ativo: boolean
     }
 
     // declaração do construtor e dos states
@@ -27,7 +32,8 @@ export default class Enviar extends React.Component<Props>{
         this.state = {
             titulo: '',
             msg: '',
-            user: ''
+            user: '',
+            ativo: true
         }
     }
 
@@ -51,6 +57,11 @@ export default class Enviar extends React.Component<Props>{
         this.setState({
             [name]: value
         })
+    }
+
+    // altera a altura da caixa de postagem
+    setAtivo(): void{
+        this.setState({ativo: !this.state.ativo})
     }
 
     // envia os posts para o backend
@@ -125,8 +136,30 @@ export default class Enviar extends React.Component<Props>{
         else{
             return (
                 <>
-                    <DivEnviar>
-                        <Div>
+                    <abbr title={this.state.ativo ? 'Abaixar aba de post' : 'Levantar aba de post'}>
+                        <ButtonAtivar onClick={()=>this.setAtivo()}>
+                        
+                            {
+                                this.state.ativo ?
+                                <IoMdArrowDropdown
+                                    size={23}
+                                    color='#fff'
+                                />
+                                 :
+                                <IoMdArrowDropup
+                                    size={23}
+                                    color='#fff'
+                                />
+                            }
+                            
+                        </ButtonAtivar>
+                    </abbr>
+                    <DivEnviar
+                        ativo={this.state.ativo}
+                    >
+                        <DivCampo
+                            ativo={this.state.ativo}
+                        >
                             <InputTittle 
                                 placeholder="Título"
                                 name="titulo"
@@ -134,8 +167,10 @@ export default class Enviar extends React.Component<Props>{
                                 onChange={(e)=>this.setValores(e)}
                                 autoComplete="off"
                             />
-                        </Div>
-                        <Div>
+                        </DivCampo>
+                        <DivCampo
+                            ativo={this.state.ativo}
+                        >
                             <TextArea
                                 maxLength={300}
                                 placeholder="Digite a sua mensagem aqui"
@@ -151,7 +186,7 @@ export default class Enviar extends React.Component<Props>{
                                     onClick={()=>this.enviarPost()}
                                 />
                             </ButtonSend>
-                        </Div>
+                        </DivCampo>
                     </DivEnviar>
                 </>
             )

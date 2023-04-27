@@ -1,8 +1,9 @@
-// importação de módulos e outros documentos
+// imports dos módulos
 const express = require('express')
 const cors = require('cors')
-const mongoose = require('mongoose')
 const app = express()
+
+// imports dos models 
 const usuario = require('./models/usuarios')
 const post = require('./models/posts')
 
@@ -125,6 +126,23 @@ app.put('/like-deslike', (req, res)=>{
             console.log('!!!ERRO: ' + err)
         })
 
+})
+
+app.put('/nova-senha', (req, res)=>{
+    const { senha } = req.body
+    const { user } = req.body
+    usuario.updateOne({
+        usuario: user
+    },
+    {
+        senha: senha
+    })
+        .then(()=>{
+            console.log('Senha Alterada!')
+        })
+        .catch((err)=>{
+            console.log('!!!ERRO: ' + err)
+        })
 })
 
 // outros

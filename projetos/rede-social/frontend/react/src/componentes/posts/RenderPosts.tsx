@@ -10,7 +10,6 @@ import { DivComentarios } from '../../estilos/Comentarios-style'
 import ApagarPost from './ApagarPost' 
 import EditarPost from './EditarPost'
 import Like from './Like'
-import Comentarios from './Comentarios'
 
 // tipagem dos props
 interface Props {
@@ -161,9 +160,6 @@ export default class RenderPosts extends React.Component<Props>{
                                     typeof post.likes?.length == 'number' ? post.likes?.length : 0
                                 }
                             />
-                            <Comentarios
-                                id={post.id}
-                            />
                         </Div>
                         <DivComentarios
                             displayComentarios={this.state.comentario ? 'flex' : 'none'}
@@ -184,7 +180,9 @@ export default class RenderPosts extends React.Component<Props>{
 
     render(): React.ReactNode {
         return (
-            <DivPosts>
+            <DivPosts
+                style={{height: this.state.modoEdit ? '100%' : 'auto'}}
+            >
                 {this.renderPosts()}
             </DivPosts>
         )

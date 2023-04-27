@@ -3,8 +3,8 @@ import React, { ChangeEvent } from 'react'
 import { Link } from 'react-router-dom'
 
 // imports dos estilos
-import { Body, Main, Div, DivImg, Section, FormInputs, H1, HrMaior, CadastroButton, CadastroInput, Field } from '../../estilos/Cadastro-style'
-import { Input, Invalido } from '../../estilos/Estilos-gerais'
+import { Body, Main, Div, DivImg, Section, FormInputs, H1, CadastroInput, Field } from '../../estilos/Cadastro-style'
+import { Input, Invalido, HrMaior, ConfirmButton } from '../../estilos/Estilos-gerais'
 import '../../App.css'
 
 //imports dos ícones
@@ -276,9 +276,9 @@ export default class Cadastro extends React.Component<Props>{
                 apagarStates={()=>this.apagarStates()}
               />
               <Link to='/login'>
-                <CadastroButton>
+                <ConfirmButton>
                   Voltar
-                </CadastroButton>
+                </ConfirmButton>
               </Link>
             </Field>
           </FormInputs>

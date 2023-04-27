@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 // import do estilo
-import { CadastroButton }  from '../../estilos/Cadastro-style'
+import { ConfirmButton }  from '../../estilos/Estilos-gerais'
 
 // tipagem dos props
 interface Props {
@@ -154,7 +154,6 @@ export default class ButtonCadastro extends React.Component<Props>{
         
     }
 
-
     // função do cadastro
     cadastrar(): void{
         
@@ -179,9 +178,9 @@ export default class ButtonCadastro extends React.Component<Props>{
         return(
             <>
                 <ToastContainer/>
-                <CadastroButton onClick={()=>this.cadastrar()} type='button'>
+                <ConfirmButton onClick={()=>this.cadastrar()} type='button'>
                     Cadastrar
-                </CadastroButton>
+                </ConfirmButton>
             </>
         )
     }

@@ -57,26 +57,9 @@ const H1 = styled.h1`
     text-align: center;
     font-size: 2.5em;
 `
-const HrMaior = styled.hr`
-    width: 90%;
-    margin-bottom: 20px;
-`
 
-const CadastroButton = styled.button`
-    background-color: transparent;
-    color: #80C3B0;
-    padding: 10px 15px;
-    font-size: 1em;
-    border: 2px solid #80C3B0;
-    border-radius: 20px;
-    margin-right: 20px;
-    transition: .3s;
-    &:hover{
-        background-color: #80C3B0;
-        color: white;
-        cursor: pointer;
-    }
-`
+
+
 const CadastroInput = styled.input`
 
 `
@@ -89,4 +72,4 @@ const Field = styled.fieldset`
 `
 
 //exportação dos componentes
-export { Body, Main, Div, DivImg, Section, FormInputs, H1, HrMaior, CadastroButton, CadastroInput, Field }
+export { Body, Main, Div, DivImg, Section, FormInputs, H1, CadastroInput, Field }
