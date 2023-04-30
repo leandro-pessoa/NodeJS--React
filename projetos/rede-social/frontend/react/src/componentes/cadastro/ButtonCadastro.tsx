@@ -160,6 +160,7 @@ export default class ButtonCadastro extends React.Component<Props>{
         // se a função conditions retornar verdadeiro, o novo usuário é cadastrado
         if(this.conditions()){
             toast.success('Usuário cadastrado com sucesso', {
+                theme: 'dark',
                 icon: false
             })
             axios.post('http://localhost:3000/cadastrado', {

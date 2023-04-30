@@ -2,9 +2,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-// import do ícone
-import { CiMenuBurger } from 'react-icons/ci'
-
 // tipagem dos props
 interface Props {
     divMenu: string
@@ -40,11 +37,11 @@ const SectionTittle = styled.section`
     }
 `
 const DivLinks = styled.div`
+    display: flex;
     @media (max-width: 500px){
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        background-color: #f1f1f1;
         width: calc(100% - 10px);
         height: 25px;
         padding: 5px;

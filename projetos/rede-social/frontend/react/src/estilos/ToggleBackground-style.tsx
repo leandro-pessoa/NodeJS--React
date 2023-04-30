@@ -1,6 +1,7 @@
 // import do módulo
 import styled from "styled-components"
 
+// import do componente
 import { Switch } from '@mui/material'
 
 // declaração dos componentes estilizados
@@ -54,7 +55,5 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
   }));
   
-
-
 // export dos componentes
 export { MaterialUISwitch }

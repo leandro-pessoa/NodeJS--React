@@ -8,7 +8,7 @@ import { SectionEsqueci, Main, P, Div, DivInputs, DivConfirm, H2, Span } from '.
 import { Input, HrMaior, ConfirmButton, StyledLink, Invalido } from '../../estilos/Estilos-gerais'
 
 // import da função getDados
-import getDados from '../../func/getDados'
+import getUsers from '../../func/getUsers'
 
 // import de outro componente
 import PasswordVisibility from '../geral/PasswordVisibility'
@@ -57,6 +57,18 @@ export default class Esqueci extends React.Component<Props>{
         
     }
 
+    // apaga os inputs
+    apagarStates(): void{
+        this.setState({
+            usuario: '',
+            nome: '',
+            sobrenome: '',
+            email: '',
+            ano: ''
+        })
+    }
+
+    // altera a visibilidade da senha
     setPassVis(): void{
         this.setState({passVis: !this.state.passVis})
     }
@@ -84,7 +96,6 @@ export default class Esqueci extends React.Component<Props>{
         }
         else{
             this.setState({preencha1: false})
-            count = 0
         }
 
         // verifica se a expressão regular está correta 
@@ -93,13 +104,13 @@ export default class Esqueci extends React.Component<Props>{
             this.setState({anoInvalido: true})
         }
         else{
-            this.setState({anoInvalido: false})
             count = 0
+            this.setState({anoInvalido: false})
         }
 
         // caso esteja tudo correto, o mode de edição de senha será ativado
         if(count == 0){
-            getDados().map(
+            getUsers().map(
                 (dado: {nome?: string, sobrenome?: string, usuario?: string, email?: string, nascimento?: string}) => {
                     if(this.state.nome == dado.nome && this.state.sobrenome == dado.sobrenome && this.state.usuario == dado.usuario && this.state.email == dado.email && this.state.ano + 'T00:00:00.000Z' == dado.nascimento){
                         this.setState({modoEdit: true})
@@ -130,6 +141,7 @@ export default class Esqueci extends React.Component<Props>{
             this.setState({diferentes: true})
         }
         else{
+            count = 0
             this.setState({diferentes: false})
         }
         
@@ -141,6 +153,7 @@ export default class Esqueci extends React.Component<Props>{
                 user: this.state.usuario,
                 senha: this.state.novaSenha
             })
+            this.apagarStates()
             this.setState({modoEdit: false})
             toast.success('Senha alterada com sucesso', {
                 theme: 'dark',

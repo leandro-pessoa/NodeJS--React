@@ -1,5 +1,5 @@
 // imports de módulos e imagens
-import React, {ChangeEvent} from 'react'
+import React, { ChangeEvent } from 'react'
 import  { CiLock } from 'react-icons/ci'
 import { CiUser } from 'react-icons/ci'
 
