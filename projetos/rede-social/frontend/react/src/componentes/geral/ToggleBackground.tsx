@@ -1,18 +1,19 @@
-// import do módulo
+// imports dos módulos
 import { useState } from 'react'
+import { useAppDispatch } from '../../app/hooks'
+
+// import da action criada
+import { changeColor } from '../../features/reducers'
 
 // import dos componentes estilizados
 import { MaterialUISwitch } from '../../estilos/ToggleBackground-style'
 
-import background from '../../estilos/Colors'
-
 export default function ToggleBackground() {
-    const [modo, setModo] = useState<boolean>(false)
-    background()
+    const dispatch = useAppDispatch()
     return (
         <>
             <MaterialUISwitch
-                onChange={()=>setModo(!modo)}
+                onChange={()=>dispatch(changeColor())}
             />
         </>
     )

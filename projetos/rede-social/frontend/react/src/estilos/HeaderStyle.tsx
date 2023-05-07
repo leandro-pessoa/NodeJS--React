@@ -2,6 +2,8 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+import { color } from '../features/selector'
+
 // tipagem dos props
 interface Props {
     divMenu: string
@@ -15,7 +17,7 @@ const Heade = styled.header`
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #71747c;
-    background-color: #2b2d33;
+    background-color: ${color ? '#2b2d33' : '#fff'};
     padding: 15px 30px;
     @media (max-width: 700px){
         font-size: 0.9em;
