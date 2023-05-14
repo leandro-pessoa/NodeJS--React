@@ -7,7 +7,7 @@ import { colorReducer } from "../reducers"
 // declaração da store
 export const store = configureStore({
     reducer: {
-        color: colorReducer
+        theme: colorReducer
     }
 })
 

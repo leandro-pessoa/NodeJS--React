@@ -31,7 +31,8 @@ const ButtonAtivar = styled.button`
 const DivEnviar = styled.div`
     margin: ${propsAtivo('20px', '0px')};
     margin-top: 5px;
-    border: ${propsAtivo('1px solid #71747c', 'none')};
+    border: ${propsAtivo('1px solid black', 'none')};
+    border-color: ${({theme}) => theme};
     border-radius: 10px;
     padding: ${propsAtivo('10px 16px', '5px')};
     width: 80%;
@@ -72,7 +73,8 @@ const Logue = styled.div`
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.1em;
     padding: 40px;
-    border-top: 1px solid #71747c;
+    border-top: 1px solid;
+    border-color: ${({theme}) => theme};
     width: calc(80% - 40px);
     text-align: center;
     @media (max-width: 600px){
@@ -80,5 +82,13 @@ const Logue = styled.div`
     }
 `
 
+const Div = styled.div` 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+`
+
 // exportação dos componentes
-export { ButtonAtivar, DivEnviar, DivCampo, ButtonSend, StyledIoMdSend, Logue }
+export { ButtonAtivar, DivEnviar, DivCampo, ButtonSend, StyledIoMdSend, Logue, Div }

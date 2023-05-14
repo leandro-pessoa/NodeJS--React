@@ -2,10 +2,11 @@
 import React, { ChangeEvent } from 'react'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
+import { useAppSelector } from '../../app/hooks'
 
 // import dos estilos
 import { TextArea, InputTittle } from '../../estilos/Estilos-gerais'
-import { ButtonAtivar, DivEnviar, DivCampo, ButtonSend, StyledIoMdSend, Logue } from '../../estilos/Enviar-style'
+import { ButtonAtivar, DivEnviar, DivCampo, ButtonSend, StyledIoMdSend, Logue, Div } from '../../estilos/Enviar-style'
 
 // imports dos ícones
 import { IoMdArrowDropdown } from 'react-icons/io'
@@ -82,8 +83,9 @@ export default class Enviar extends React.Component<Props>{
             // parte destinada à inserção das horas e da data atual no post
             const data: Date =  new Date()
             const mesAtual: number = data.getMonth() + 1
+            const mes: string | number = data.getMonth() >= 10 ? data.getMonth() : '0' + data.getMonth() 
             const minutos: number | string = data.getMinutes() < 10 ? '0' + data.getMinutes() : data.getMinutes()
-            const date: string = data.getDate() + '/' + mesAtual + '/' + data.getFullYear()
+            const date: string = data.getDate() + '/' + mes + '/' + data.getFullYear()
             const tempoAtual: string = data.getHours() + ':' + minutos
             
             // geração do id do post
@@ -126,6 +128,7 @@ export default class Enviar extends React.Component<Props>{
 
     // renderiza a caixa de postagem somente se houver um usuário logado
     renderDiv(): JSX.Element | undefined{
+
         if(this.state.user == ''){
             return (
                 <Logue>
@@ -135,25 +138,25 @@ export default class Enviar extends React.Component<Props>{
         }
         else{
             return (
-                <>
-                    <abbr title={this.state.ativo ? 'Abaixar aba de post' : 'Levantar aba de post'}>
-                        <ButtonAtivar onClick={()=>this.setAtivo()}>
-                        
+                <Div>
+                    <ButtonAtivar onClick={()=>this.setAtivo()}>
+                        <abbr 
+                            title={this.state.ativo ? 'Abaixar aba de post' : 'Levantar aba de post'}  
+                        >
                             {
                                 this.state.ativo ?
                                 <IoMdArrowDropdown
                                     size={23}
-                                    color='#fff'
+                                    color='#c9c9c9'
                                 />
-                                 :
+                                :
                                 <IoMdArrowDropup
                                     size={23}
-                                    color='#fff'
+                                    color='#c9c9c9'
                                 />
                             }
-                            
-                        </ButtonAtivar>
-                    </abbr>
+                        </abbr>
+                    </ButtonAtivar>
                     <DivEnviar
                         ativo={this.state.ativo}
                     >
@@ -188,7 +191,7 @@ export default class Enviar extends React.Component<Props>{
                             </ButtonSend>
                         </DivCampo>
                     </DivEnviar>
-                </>
+                </Div>
             )
         }
     }

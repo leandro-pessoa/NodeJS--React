@@ -3,12 +3,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // tipagem do state
 interface ColorState {
-    color: boolean
+    theme: string
 }
 
 // declaração do state
 const initialState: ColorState = {
-    color: false
+    theme: 'dark'
 }
 
 // declaração e export do slice e declaração da action
@@ -16,14 +16,17 @@ export const ColorSlice = createSlice({
     name: 'color',
     initialState,
     reducers: {
-        changeColor: (state) => {
-            state.color = !state.color
+        toggleTheme(state) {
+            state.theme = state.theme === 'light' ? 'dark' : 'light'
         },
+        setDefaultTheme(state) {
+            state.theme = 'light'
+        }
     }
 })
 
 // export da action
-export const { changeColor } = ColorSlice.actions
+export const { toggleTheme, setDefaultTheme } = ColorSlice.actions
 
 // export do reducer
 export const colorReducer = ColorSlice.reducer

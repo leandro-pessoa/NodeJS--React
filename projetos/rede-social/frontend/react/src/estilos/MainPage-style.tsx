@@ -15,11 +15,12 @@ const Main = styled.main`
     display: flex;
     flex-direction: row;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #2b2d33;
+    background-color: ${({theme}) => theme};
     height: 91vh;
     width: 75%;
     margin: auto;
-    color: white;
+    color: ${({theme}) => theme};
+    border: none;
     @media (max-width: 700px){
         font-size: 0.9em;
         width: 100%;

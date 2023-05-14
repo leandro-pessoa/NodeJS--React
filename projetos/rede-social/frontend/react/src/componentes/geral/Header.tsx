@@ -10,6 +10,7 @@ import { CiLogout } from 'react-icons/ci'
 // import de outro componente
 import ToggleBackground from './ToggleBackground'
 
+
 // tipagem dos props
 interface Props{
   
@@ -90,7 +91,6 @@ export default class Header extends React.Component<Props>{
           </DivUser>
           <DivUser 
             style={{
-              color: 'white',
               fontSize: '0.8em',
               marginTop: '3px'
             }}

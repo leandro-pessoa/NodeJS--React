@@ -2,6 +2,10 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { useAppDispatch } from '../../app/hooks'
+
+// import da action
+import { setDefaultTheme } from '../../features/reducers'
 
 // import do estilo
 import { LoginButton } from '../../estilos/Login-style'
@@ -104,6 +108,7 @@ export default class LoginFunc extends React.Component<Props>{
     // faz as validações impostas acima
     // caso haja alguma invalidação, as mensagens de erro aparecerão
     login(): void{
+        
         if(this.verification(1)){
             this.props.setUsuarioInvalido(false)
             if(this.verification(2)){

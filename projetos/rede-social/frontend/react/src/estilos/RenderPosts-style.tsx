@@ -8,7 +8,7 @@ import { MdOutlineCancel } from 'react-icons/md'
 
 // tipagem dos props
 interface Props {
-    alturaComentarios: string
+    
 }
 
 // declaração dos componentes estilizados
@@ -22,7 +22,8 @@ const DivPosts = styled.div`
 
 const Post = styled.div`
     margin: 20px;
-    border: 1px solid #71747c;
+    border: 1px solid;
+    border-color: ${({theme}) => theme};
     border-radius: 10px;
     padding: 10px 16px;
     padding-bottom: 10px;
@@ -72,7 +73,6 @@ const icons = `
     &:hover{
         cursor: pointer;
         transition: ease .2s;
-        background-color: #565963;
     }
     @media (max-width: 450px){
         width: 18px;
@@ -84,22 +84,34 @@ const StyledCiTrash = styled(CiTrash)`
     @media (max-width: 450px){
         margin-left: 4px;
     }
+    &:hover{
+        background-color: ${({theme}) => theme.hover};
+    }
 `
 
 const StyledCiEdit = styled(CiEdit)`
     ${icons}
+    &:hover{
+        background-color: ${({theme}) => theme.hover};
+    }
 `
 
 const StyledMdOutlineCancel = styled(MdOutlineCancel)`
     ${icons}
     margin-left: 10px;
     margin-bottom:  5px;
+    &:hover{
+        background-color: ${({theme}) => theme.hover};
+    }
 `
 
 const Svg = styled.svg`
     ${icons}
     margin-right: 8px;
     padding-bottom: 0px;
+    &:hover{
+        background-color: ${({theme}) => theme.hover};
+    }
 `
 
 const Path = styled.path`

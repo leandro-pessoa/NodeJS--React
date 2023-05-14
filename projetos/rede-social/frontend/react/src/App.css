@@ -3,28 +3,13 @@
 *{
     margin: 0;
     padding: 0;
-    /*color: #2b2d33;*/
 }
 
 svg{
     transform: translate(0px, 5.5px);
 }
 
-*::-webkit-scrollbar{
-    width: 20px;
-}
-*::-webkit-scrollbar-track{
-    background: #2B2D33;
-}
-*::-webkit-scrollbar-thumb{
-    background-color: #414758;
-    border-radius: 15px;
-    border: 5px solid #2B2D33;
-}
 
-::-webkit-input-placeholder{
-    color: white;
-}
 
 button:active{
     transform: translate(1px, 1px);

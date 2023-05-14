@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-import { color } from '../features/selector'
+// import Color from '../features/selector'
 
 // tipagem dos props
 interface Props {
@@ -16,8 +16,9 @@ const Heade = styled.header`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #71747c;
-    background-color: ${color ? '#2b2d33' : '#fff'};
+    background-color: ${({theme}) => theme.background};
+    border-bottom: 1px solid;
+    border-color: ${({theme}) => theme.borderColor};
     padding: 15px 30px;
     @media (max-width: 700px){
         font-size: 0.9em;
@@ -59,20 +60,20 @@ const SectionUser = styled.button`
     @media (max-width: 500px){
         display: flex;
         justify-content: flex-start;
-        
         padding: 10px;
         gap: 15px;
     }
 `
 const DivUser = styled.div`
-
+    color: ${({theme}) => theme};
 `
 const DivMenu = styled.div`
+    background: ${({theme}) => theme.background};
     display: flex;
     flex-direction: column;
     position: fixed;
-    background-color: #2b2d33;
-    border: 1px solid #71747c;
+    border: 1px solid;
+    border-color: ${({theme}) => theme.borderColor};
     border-top: none;
     color: white;
     border-bottom-left-radius: 10px;
@@ -97,15 +98,16 @@ const StyledLink = styled(Link)`
     padding: 5px 10px;
     border-radius: 20px;
     &:hover{
-        background-color: #454852;
+        background-color: ${({theme}) => theme.hover};
     }
     &:active{
-        background-color: #454852;
+        background-color: ${({theme}) => theme.hover};
     }
 `
 const StyledLink2 = styled(Link)`
     text-decoration: none;
-    color: white;
+    color: ${({theme}) => theme};
+    background-color: ${({theme}) => theme};
 `
 
 const Div = styled.div`
@@ -116,7 +118,7 @@ const Div = styled.div`
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     &:hover{
-        background-color: #454852;
+        background-color: ${({theme}) => theme.hover};
     }
 `
 

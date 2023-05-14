@@ -1,9 +1,42 @@
 // estilos gerais
 
-// import do módulo
-import styled from 'styled-components'
-
+// imports dos módulos
+import styled, { createGlobalStyle } from 'styled-components'
 import { Link } from 'react-router-dom'
+
+// tipagens do estilo global
+export interface DefaultTheme {
+    background: string,
+    color: string,
+    scrollbar: string,
+    scrollbarBack: string, 
+
+}
+
+// declaração do estilo global
+export const GlobalStyles = createGlobalStyle<{theme: DefaultTheme}>`
+    body, main {
+        background-color: ${({theme}) => theme.background};
+        color: ${({theme}) => theme.color};
+    }
+    *::-webkit-scrollbar{
+        width: 20px;
+    }
+    *::-webkit-scrollbar-track{
+        background: ${({theme}) => theme.scrollbar};
+    }
+    *::-webkit-scrollbar-thumb{
+        background: ${({theme}) => theme.scrollbarBack};
+        border-radius: 15px;
+        border: 5px solid ;
+        
+        border-color: ${({theme}) => theme.scrollbar};
+    }
+
+    ::-webkit-input-placeholder{
+        color: #fff;
+    }
+`
 
 // declaração dos componentes
 const Input = styled.input`
@@ -31,11 +64,12 @@ const Invalido = styled.span`
 const TextArea = styled.textarea`
     width: calc(100% - 22px);
     background-color: transparent;
-    border: 1px solid #71747c;
+    border: 1px solid;
+    border-color: ${({theme}) => theme};
     border-radius: 5px;
     padding: 3px 10px;
     resize: none;
-    color: white;
+    color: ${({theme}) => theme};
     font-size: 1.1em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: lighter;
@@ -45,6 +79,9 @@ const TextArea = styled.textarea`
         outline: 2px solid #41a6bddc;
         border: 1px solid #3a95aadc;
     }
+    &::placeholder{
+        color: ${({theme}) => theme.color};
+    }
     @media (max-width: 500px){
         font-size: 0.9em
     }
@@ -52,17 +89,21 @@ const TextArea = styled.textarea`
 
 const InputTittle = styled.input`
     background-color: transparent;
-    border: 1px solid #71747c;
+    border: 1px solid;
+    border-color: ${({theme}) => theme};
     border-radius: 5px;
     font-size: 1.1em;
     padding: 3px 10px;
-    color: white;
+    color: ${({theme}) => theme};
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: lighter;
     width: 50%;
     &:focus{
         outline: 2px solid #41a6bddc;
         border: 1px solid #3a95aadc;
+    }
+    &::placeholder{
+        color: ${({theme}) => theme.color};
     }
     @media (max-width: 500px){
         font-size: 0.9em

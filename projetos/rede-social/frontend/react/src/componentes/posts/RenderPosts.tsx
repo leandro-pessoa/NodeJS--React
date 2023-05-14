@@ -4,7 +4,6 @@ import React from 'react'
 // imports dos estilos
 import { DivPosts, Post, Div, H2, Small, P, Button, H3, Svg, Path } from '../../estilos/RenderPosts-style'
 import { TextArea } from '../../estilos/Estilos-gerais'
-import { DivComentarios } from '../../estilos/Comentarios-style'
 
 // imports de outros componentes
 import ApagarPost from './ApagarPost' 
@@ -161,18 +160,6 @@ export default class RenderPosts extends React.Component<Props>{
                                 }
                             />
                         </Div>
-                        <DivComentarios
-                            displayComentarios={this.state.comentario ? 'flex' : 'none'}
-                        >
-                            <hr
-                                color='#71747C'
-                                style={{margin: '10px'}}
-                            />
-                            <H2>Comentários</H2>
-                            <TextArea
-                                placeholder='Comentário'
-                            />
-                        </DivComentarios>
                     </Post>
                 )  
         }
